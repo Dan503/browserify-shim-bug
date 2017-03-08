@@ -1,0 +1,14 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#autocomplete {
+  display: block;
+  margin: 50px auto;
+  width: 500px;
+}
+
+/*# sourceMappingURL=main.css.map */
