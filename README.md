@@ -1,54 +1,16 @@
 # Browserify-Shim-Bug readme
 
-Generated on 2017-03-08 using
-[generator-yeogurt@1.5.3](https://github.com/larsonjj/generator-yeogurt)
+Steps to replicate the bug:
 
-## Description
+1. fork/download this repository
+2. run `npm install`
+3. run `gulp --open`
 
-This is an example readme file.
-Describe your site/app here.
+You will see a message that says "typeahead **IS** defined in jQuery.fn". It displays this message if `jQuery.fn.typeahead` returns a function in the `src/_scripts/main.js` file.
 
-## Technologies used
+4. Use ctrl+c to stop the command prompt task runner
+5. open the package.json file in the root folder
+6. change `"//exports": "global:jQuery"` to `"exports": "global:jQuery"` (equivalent of uncommenting it)
+7. run `gulp --open` again
 
-JavaScript
-- [Browserify](http://browserify.org/) with ES6/2015 support through [Babel](https://babeljs.io/)
-- [Node](https://nodejs.org/)
-
-Styles
-- [Sass](http://sass-lang.com/) via ([node-sass](https://github.com/sass/node-sass))
-
-Markup
-- [Jade](http://jade-lang.com/)
-
-Optimization
-- [Imagemin](https://github.com/imagemin/imagemin)
-- [Uglify](https://github.com/mishoo/UglifyJS)
-
-Server
-- [BrowserSync](http://www.browsersync.io/)
-
-Linting
-- [ESlint](http://eslint.org/)
-
-Automation
-- [Gulp](http://gulpjs.com)
-
-Code Management
-- [Editorconfig](http://editorconfig.org/)
-- [Git](https://git-scm.com/)
-
-
-## Automated tasks
-
-This project uses [Gulp](http://gulpjs.com) to run automated tasks for development and production builds.
-The tasks are as follows:
-
-`gulp --production`: Same as `gulp serve --production` also run `gulp test` and  not boot up production server
-
-`gulp serve`: Compiles preprocessors and boots up development server
-`gulp serve --open`: Same as `gulp serve` but will also open up site/app in your default browser
-`gulp serve --production`: Same as `gulp serve` but will run all production tasks so you can view the site/app in it's final optimized form
-
-`gulp test`: Lints all `*.js` file in the `source` folder using eslint
-
-***Adding the `--debug` option to any gulp task displays extra debugging information (ex. data being loaded into your templates)***
+You will see a message that says "typeahead is **NOT** defined in jQuery.fn". This of coarse is displayed when `jQuery.fn.typeahead` returns `undefined` from the main.js file.
