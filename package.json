@@ -63,7 +63,7 @@
   },
   "browserify-shim": {
     "jquery": {
-      "exports": "global:jQuery"
+      "//exports": "global:jQuery"
     }
   },
   "//": "CUSTOM CONFIGURATION",
